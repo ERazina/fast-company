@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div>
       <SearchStatus users={users} />
-      <Users users={users} onDelete={onDelete} />
+      {users.length !== 0 ? <Users users={users} onDelete={onDelete} /> : null}
     </div>
   );
 };
