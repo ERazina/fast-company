@@ -4,7 +4,9 @@ import Qualities from "./qualities";
 import Bookmarks from "./bookmarks";
 
 const User = (props) => {
-  const user = props.user;
+  const { user } = props;
+
+  console.log("USER", props);
 
   return (
     <tr key={user._id}>
@@ -19,6 +21,7 @@ const User = (props) => {
         <Bookmarks
           bookmark={user.bookmark}
           toggleBookmark={props.toggleBookmark}
+          user={props.user}
         />
       </td>
       <td>

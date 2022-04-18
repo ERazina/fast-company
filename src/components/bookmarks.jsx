@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Bookmarks = (props) => {
-  const { bookmark } = props;
+  const { bookmark, user } = props;
+
+  console.log(props);
 
   const renderIcon = () => {
     return bookmark ? (
