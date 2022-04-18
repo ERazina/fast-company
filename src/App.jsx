@@ -18,10 +18,25 @@ const App = () => {
     );
   };
 
+  const toggleBookmark = () => {
+    setUsers(
+      users.map((user) => {
+        return user.bookmark === !user.bookmark;
+      })
+    );
+  };
+
   return (
     <div>
       <SearchStatus users={users} />
-      {users.length !== 0 ? <Users users={users} onDelete={onDelete} /> : null}
+      {users.length !== 0 ? (
+        <Users
+          key={users._id}
+          users={users}
+          onDelete={onDelete}
+          toggleBookmark={toggleBookmark}
+        />
+      ) : null}
     </div>
   );
 };

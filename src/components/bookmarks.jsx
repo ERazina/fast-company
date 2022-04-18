@@ -6,11 +6,14 @@ const Bookmarks = (props) => {
   const { bookmark } = props;
 
   const renderIcon = () => {
-    console.log(bookmark);
     return bookmark ? (
-      <i className="bi bi-bookmark-fill"></i>
+      <button onClick={() => props.toggleBookmark(props._id)}>
+        <i className="bi bi-bookmark-fill"></i>
+      </button>
     ) : (
-      <i className="bi bi-bookmark"></i>
+      <button onClick={() => props.toggleBookmark(props._id)}>
+        <i className="bi bi-bookmark"></i>
+      </button>
     );
   };
 

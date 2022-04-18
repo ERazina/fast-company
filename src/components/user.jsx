@@ -16,7 +16,10 @@ const User = (props) => {
       <td>{user.completedMeetings}</td>
       <td>{user.rate}</td>
       <td>
-        <Bookmarks bookmark={user.bookmark} />
+        <Bookmarks
+          bookmark={user.bookmark}
+          toggleBookmark={props.toggleBookmark}
+        />
       </td>
       <td>
         <button

@@ -7,12 +7,6 @@ import User from "./user";
 const Users = (props) => {
   const { name, _id, users } = props;
 
-  //   const count = props.users.length;
-
-  //   const deleteUser = (id) => {
-  //     setUsers(users.filter((user) => user._id !== id));
-  //   };
-
   return (
     <div>
       <table className="table table-hover table-responsive">
@@ -29,7 +23,12 @@ const Users = (props) => {
         </thead>
         <tbody>
           {props.users.map((user) => (
-            <User key={user._id} user={user} onDelete={props.onDelete} />
+            <User
+              key={user._id}
+              user={user}
+              onDelete={props.onDelete}
+              toggleBookmark={props.toggleBookmark}
+            />
           ))}
         </tbody>
       </table>
