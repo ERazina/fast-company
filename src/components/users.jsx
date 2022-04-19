@@ -9,9 +9,11 @@ const Users = (props) => {
   const { name, _id, users } = props;
   const amountOfPages = 4;
   const count = users.length;
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (pageIndex) => {
     console.log("handle page change ", pageIndex);
+    setCurrentPage(pageIndex);
   };
 
   return (
@@ -43,6 +45,7 @@ const Users = (props) => {
         itemsCount={count}
         amountOfPages={amountOfPages}
         onPageChange={handlePageChange}
+        currentPage={currentPage}
       />
     </div>
   );
