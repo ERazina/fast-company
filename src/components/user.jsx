@@ -6,8 +6,6 @@ import Bookmarks from "./bookmarks";
 const User = (props) => {
   const { user } = props;
 
-  console.log("USER", props);
-
   return (
     <tr key={user._id}>
       <td>{user.name}</td>

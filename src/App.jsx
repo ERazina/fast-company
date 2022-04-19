@@ -22,8 +22,9 @@ const App = () => {
     setUsers(
       users.map((user) => {
         if (user._id === id) {
-          user.bookmark === !user.bookmark;
+          user.bookmark = !user.bookmark;
         }
+        return user;
       })
     );
   };

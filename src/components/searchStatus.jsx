@@ -7,7 +7,6 @@ const SearchStatus = (props) => {
     if (count !== 0) {
       return "badge bg-primary";
     } else {
-      console.log(count);
       return "badge bg-danger";
     }
   };
