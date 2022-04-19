@@ -9,11 +9,11 @@ const Bookmarks = (props) => {
 
   const renderIcon = () => {
     return bookmark ? (
-      <button onClick={() => props.toggleBookmark(props._id)}>
+      <button onClick={() => props.toggleBookmark(user._id)}>
         <i className="bi bi-bookmark-fill"></i>
       </button>
     ) : (
-      <button onClick={() => props.toggleBookmark(props._id)}>
+      <button onClick={() => props.toggleBookmark(user._id)}>
         <i className="bi bi-bookmark"></i>
       </button>
     );

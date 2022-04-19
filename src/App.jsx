@@ -18,10 +18,12 @@ const App = () => {
     );
   };
 
-  const toggleBookmark = () => {
+  const toggleBookmark = (id) => {
     setUsers(
       users.map((user) => {
-        return user.bookmark === !user.bookmark;
+        if (user._id === id) {
+          user.bookmark === !user.bookmark;
+        }
       })
     );
   };
