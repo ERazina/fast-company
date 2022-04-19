@@ -3,9 +3,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import searchStatus from "./searchStatus";
 import Qualities from "./qualities";
 import User from "./user";
+import Pagination from "./pagination";
 
 const Users = (props) => {
   const { name, _id, users } = props;
+  const amountOfPages = 4;
+  const count = users.length;
+
+  const handlePageChange = (pageIndex) => {
+    console.log("handle page change ", pageIndex);
+  };
 
   return (
     <div>
@@ -32,6 +39,11 @@ const Users = (props) => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        itemsCount={count}
+        amountOfPages={amountOfPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
