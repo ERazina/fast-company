@@ -4,6 +4,7 @@ import searchStatus from "./searchStatus";
 import Qualities from "./qualities";
 import User from "./user";
 import Pagination from "./pagination";
+import { paginate } from "../utils/paginate";
 
 const Users = (props) => {
   const { name, _id, users } = props;
@@ -15,6 +16,8 @@ const Users = (props) => {
     console.log("handle page change ", pageIndex);
     setCurrentPage(pageIndex);
   };
+
+  const userCrop = paginate(users, currentPage, amountOfPages);
 
   return (
     <div>
@@ -31,7 +34,7 @@ const Users = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.users.map((user) => (
+          {userCrop.map((user) => (
             <User
               key={user._id}
               user={user}
