@@ -1,26 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import searchStatus from "./searchStatus";
-import Qualities from "./qualities";
+// import searchStatus from "./searchStatus";
+// import Qualities from "./qualities";
 import User from "./user";
 import Pagination from "./pagination";
 import { paginate } from "../utils/paginate";
 import { FilterList } from "./filterList";
 import api from "../api";
+import PropTypes from "prop-types";
 
 const Users = (props) => {
-  const { name, _id, users } = props;
+  const { users } = props;
   const amountOfPages = 4;
   const count = users.length;
   const [currentPage, setCurrentPage] = useState(1);
-  const [professions] = useState(api.professions.fetchAll());
+  const [professions, setProfessions] = useState();
 
   const handlePageChange = (pageIndex) => {
-    console.log("handle page change ", pageIndex);
     setCurrentPage(pageIndex);
   };
 
-  console.log(professions);
+  useEffect(() => {
+    api.professions.fetchAll().then((data) => {
+      setProfessions(data);
+    });
+  }, []);
 
   const userCrop = paginate(users, currentPage, amountOfPages);
 
@@ -66,5 +70,12 @@ const Users = (props) => {
 
 //   );
 // };
+
+Users.PropTypes = {
+  // name: PropTypes.string.isRequired,
+  // _id: PropTypes.number.isRequired,
+  users: PropTypes.any,
+  onDelete: PropTypes.func,
+};
 
 export default Users;
