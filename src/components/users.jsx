@@ -7,7 +7,7 @@ import Pagination from "./pagination";
 import { paginate } from "../utils/paginate";
 import { FilterList } from "./filterList";
 import api from "../api";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
 const Users = (props) => {
   const { users } = props;
@@ -71,11 +71,12 @@ const Users = (props) => {
 //   );
 // };
 
-Users.PropTypes = {
+Users.propTypes = {
   // name: PropTypes.string.isRequired,
   // _id: PropTypes.number.isRequired,
-  users: PropTypes.any,
-  onDelete: PropTypes.func,
+  users: propTypes.any,
+  onDelete: propTypes.func,
+  toggleBookmark: propTypes.func,
 };
 
 export default Users;
