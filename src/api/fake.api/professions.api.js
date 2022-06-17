@@ -8,8 +8,8 @@ export const professions = {
 };
 
 const fetchAll = () => {
-  new Promise((resolve) => {
-    window.setTimeout(function () {
+  return new Promise((resolve) => {
+    window.setTimeout(function() {
       resolve(professions);
     }, 2000);
   });
