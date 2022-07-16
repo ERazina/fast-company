@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import User from "./user";
 import Pagination from "./pagination";
 import { paginate } from "../utils/paginate";
-import { FilterList } from "./filterList";
+// import { FilterList } from "./filterList";
+import GroupList from "./groupList";
 import api from "../api";
 import propTypes from "prop-types";
 
@@ -14,7 +15,7 @@ const Users = (props) => {
   const amountOfPages = 4;
   const count = users.length;
   const [currentPage, setCurrentPage] = useState(1);
-  const [professions, setProfessions] = useState();
+  const [professions, setProfessions] = useState(api.professions.fetchAll());
 
   const handlePageChange = (pageIndex) => {
     setCurrentPage(pageIndex);
@@ -34,7 +35,10 @@ const Users = (props) => {
 
   return (
     <div>
-      <FilterList items={professions} onItemSelect={handleProfessionSelect} />
+      {professions && (
+        <GroupList items={professions} onItemSelect={handleProfessionSelect} />
+      )}
+      {/* <FilterList items={professions} onItemSelect={handleProfessionSelect} /> */}
       <table className="table table-hover table-responsive">
         <thead>
           <tr>
@@ -68,12 +72,7 @@ const Users = (props) => {
   );
 };
 
-//   );
-// };
-
 Users.propTypes = {
-  // name: PropTypes.string.isRequired,
-  // _id: PropTypes.number.isRequired,
   users: propTypes.any,
   onDelete: propTypes.func,
   toggleBookmark: propTypes.func,
